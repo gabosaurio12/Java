@@ -6,16 +6,24 @@ class Nodo {
 }
 
 class Lista {
-	public static void insertar(Nodo cab, int nValor) {
+	public static Nodo insertar(Nodo cab, int nValor) {
 		Nodo nuevo = new Nodo();
 		nuevo.valor = nValor;
+		nuevo.sig = null;
+
 		if (cab == null) {
 			nuevo.sig = null;
 			cab = nuevo;
 		}
 		else {
-			nuevo.sig = null;
+			Nodo aux = cab;
+			while (aux.sig != null) {
+				aux = aux.sig;
+			}
+			aux.sig = nuevo;
 		}
+
+		return cab;
 	}
 
 	public static void imprimir(Nodo cab) {
@@ -34,7 +42,7 @@ class Lista {
 		while (i < 5) {
 			System.out.print("Ingresa el valor ");
 			int valAux = scan.nextInt();
-			insertar(cabeza, valAux);
+			cabeza = insertar(cabeza, valAux);
 			i++;
 		}
 

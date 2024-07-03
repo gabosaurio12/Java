@@ -1,0 +1,102 @@
+Java Collection
+
+Vectores
+
+Declarar Vector predeterminado con capacidad inicial de 10
+
+	Vector<tipo> v = new Vector<>();
+
+Declarar Vector con capacidad especificada
+
+	Vector<tipo> v = new Vector<>(int tamaño);
+
+Declarar Vector con capacidad especificada y un incremento especificado
+
+	Vector<tipo> v = new Vector<>(int tamaño, int incremento);
+
+Declarar Vector que contienen los elementos de una colección
+
+	Vector<tipo> v = new Vector<>(Collection c);
+
+Funciones más comunes
+
+add(elemento)
+	Adjunta elemento al final del vector
+
+add(indice, elemento)
+	Inserta el elemento en el índice especificado (no sustituye el elemento de esa posición si está ocupado)
+
+addElement(elemento)
+	Añade el elemento al final del vector, incrementando su tamaño en 1
+
+capacity()
+	Regresa la capacidad actual del vector
+
+clear()
+	Elimina todos los elementos del vector
+
+clone()
+	Regresa un clon del vector
+
+contains(elemento)
+	Regresa verdadero si el vector contiene el elemento
+
+containsAll(Collection c)
+	Regresa si el vector contiene todos los elementos de la colección especificada
+
+copyInto([] arreglo)
+	Copia los componentes del vector en un arreglo especificado
+
+elementAt(indice)
+	Regresa el elemento en el índice dado
+
+elements()
+	Regresa una enumeración de los componentes del vector
+
+firstElement()
+	Regresa el primer elemento del vector
+
+lastElement()
+	Regresa el último elemento del vector
+
+get(indice)
+	Regresa el elemento del índice dado
+
+indexOf(elemento)
+	Regresa el indice de la primera ocurrencia del elemento especificado o -1 si no está
+
+indexOf(elemento, indice)
+	Regresa el índice de la primera ocurrencia del elemento especificado buscando a partir del índice dado
+
+isEmpty()
+	Comprueba si el vector está vacío
+
+remove(indice)
+	Elimina el elemento del índice dado
+
+remove(elemento)
+	Elimina la primera ocurrencia del elemento dado
+
+remove(Collection c)
+	Elimina del vector todos los elementos especificados en la colección c
+
+removeAllElements()
+	Elimina todos los componentes del vector y ajusta su tamaño a 0
+
+removeElementAt(indice)
+	Elimina el componente del indice y actualiza el tamaño del vector
+
+set(indice, elemento)
+	Reemplaza el elemento de la posición indice por el elemento dado
+
+setSize(tamaño)
+	Actualiza el tamaño del vector al tamaño dado
+
+size()
+	Regresa el tamaño del vector
+
+toArray()
+	Regresa un arreglo con los elementos del vector
+
+trimToSize()
+	Ajusta la capacidad del vector para ser igual que el tamaño
