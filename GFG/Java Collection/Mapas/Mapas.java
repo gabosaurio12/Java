@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.Map;
 
 class Mapas {
 	public static String clave(int n) {
