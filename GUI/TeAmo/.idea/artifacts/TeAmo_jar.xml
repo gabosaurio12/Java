@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="TeAmo:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/TeAmo_jar</output-path>
+    <root id="archive" name="TeAmo.jar">
+      <element id="module-output" name="TeAmo" />
+    </root>
+  </artifact>
+</component>
