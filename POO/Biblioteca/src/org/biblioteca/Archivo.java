@@ -10,6 +10,7 @@ public class Archivo {
     public void registrarPrestamo(Libro libroPrestado) {
 
         try {
+
             FileWriter escribirArch = new FileWriter("prestamos.txt");
             escribirArch.write(libroPrestado.getISBN() + "\t" + libroPrestado.getTitulo() + libroPrestado.getFechaPrestamo() +  "\t" + libroPrestado.getFechaEntrega() + "\n");
             escribirArch.close();
