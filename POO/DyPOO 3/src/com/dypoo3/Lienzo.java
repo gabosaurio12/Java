@@ -28,6 +28,19 @@ public class Lienzo {
         lienzo[size-1-y][x] = c;
     }
 
+    public void clean() {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                lienzo[i][j] = ' ';
+            }
+        }
+    }
+
+    public void resize(int x, int y) {
+        lienzo = new char[x][x];
+        clean();
+    }
+
     public void dibujar() {
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
