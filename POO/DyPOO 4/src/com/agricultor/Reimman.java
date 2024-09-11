@@ -8,7 +8,7 @@ public class Reimman {
         double semiIncremento = incremento / 2;
         double x = xI;
 
-        // Calcula la suma de los rectángulos
+        // calcula suma de los rectángulos
         for (int i = 0; i < numeroPasos; i++) {
             resultado += incremento * terreno.desperdicio(x + semiIncremento);
         }

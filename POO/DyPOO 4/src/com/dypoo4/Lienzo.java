@@ -1,30 +1,29 @@
 package com.dypoo4;
 
 public class Lienzo {
-    private int size;
-    private char[][] lienzo;
+    private int lado; // lado es tamaño, pero no me gusta poner tamano, se lee raro
+    private char lienzo[][];
 
     public Lienzo() {
-        size = 100;
-        lienzo = new char[size][size];
+        lado = 100;
+        lienzo = new char[lado][lado];
 
-        for (int i = 0; i < size; i++) {
-            for (int k = 0; k < size; k++) {
+        for (int i = 0; i < lado; i++) {
+            for (int k = 0; k < lado; k++) {
                 lienzo[i][k] = ' ';
             }
         }
     }
 
     public void setPen(int x, int y, char c) {
-        if (x > 0 || y < size) {
-            int pos = size -1;
+        if (x > 0 || y < lado) {
             lienzo[y][x] = c;
         }
     }
 
-    public void paint() {
-        for (int i = 0; i < size; i++) {
-            for (int k = 0; k < size; k++) {
+    public void print() {
+        for (int i = 0; i < lado; i++) {
+            for (int k = 0; k < lado; k++) {
                 System.out.print(lienzo[i][k]);
             }
             System.out.println();
