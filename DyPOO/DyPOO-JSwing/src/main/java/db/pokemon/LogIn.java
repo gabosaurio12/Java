@@ -59,7 +59,7 @@ public class LogIn extends JFrame {
         }
 
         private boolean authenticate(String username, String password) {
-            return username.equals("admin") && password.equals("1234");
+            return username.equals("admin") && password.equals("1234♠");
         }
     }
 

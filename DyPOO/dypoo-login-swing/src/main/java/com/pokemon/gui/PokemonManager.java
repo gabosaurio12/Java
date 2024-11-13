@@ -19,6 +19,7 @@ public class PokemonManager extends JFrame {
         pokemons = new ArrayList<>();
         pokemonListModel = new DefaultListModel<>();
         pokemonList = new JList<>(pokemonListModel);
+
         searchField = new JTextField();
 
         initComponents();
