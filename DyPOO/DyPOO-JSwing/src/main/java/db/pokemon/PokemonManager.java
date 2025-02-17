@@ -23,6 +23,19 @@ public class PokemonManager extends JFrame {
         pokemons = new ArrayList<>();
         pokemonListModel = new DefaultListModel<>();
         pokemonList = new JList<>(pokemonListModel);
+        pokemonList.setCellRenderer((list, value, index, isSelected, cellHasFocus) -> {
+            JLabel label = new JLabel(value.getName()); // Mostrar solo el nombre
+            label.setOpaque(true);
+            if (isSelected) {
+                label.setBackground(list.getSelectionBackground());
+                label.setForeground(list.getSelectionForeground());
+            } else {
+                label.setBackground(list.getBackground());
+                label.setForeground(list.getForeground());
+            }
+            return label;
+        });
+
         searchField = new JTextField();
 
         initComponents();
@@ -32,18 +45,30 @@ public class PokemonManager extends JFrame {
 
     private void initComponents() {
         JPanel topPanel = new JPanel(new BorderLayout());
+<<<<<<< HEAD
         JLabel searchLabel = new JLabel(("Buscar Pokemon"));
 
+=======
+        JLabel searchLabel = new JLabel("Buscar Pokemon");
+>>>>>>> 372bb242cc40de28fdec86b98b9c5a80ddad7353
         topPanel.add(searchLabel, BorderLayout.WEST);
         topPanel.add(searchField, BorderLayout.CENTER);
 
         JButton addButton = new JButton("Agregar");
+<<<<<<< HEAD
         JButton updateButton = new JButton("Actualizar");
+=======
+        JButton editButton = new JButton("Editar");
+>>>>>>> 372bb242cc40de28fdec86b98b9c5a80ddad7353
         JButton deleteButton = new JButton("Eliminar");
 
         JPanel buttonPanel = new JPanel();
         buttonPanel.add(addButton);
+<<<<<<< HEAD
         buttonPanel.add(updateButton);
+=======
+        buttonPanel.add(editButton);
+>>>>>>> 372bb242cc40de28fdec86b98b9c5a80ddad7353
         buttonPanel.add(deleteButton);
 
         add(topPanel, BorderLayout.NORTH);
@@ -52,6 +77,7 @@ public class PokemonManager extends JFrame {
 
         searchField.addActionListener(e -> filterPokemonList());
 
+<<<<<<< HEAD
         addButton.addActionListener(e -> {
             try {
                 addPokemon();
@@ -82,6 +108,20 @@ public class PokemonManager extends JFrame {
             JOptionPane.showMessageDialog(this, "SQL Error: " + e.getMessage(),
                     "Error", JOptionPane.ERROR_MESSAGE);
         }
+=======
+        addButton.addActionListener(e -> addPokemon());
+        //editButton.addActionListener(e -> updatePokemon());
+        deleteButton.addActionListener(e -> deletePokemon());
+
+        loadInitialPokemons();
+    }
+
+    private void loadInitialPokemons() {
+        pokemons.add(new Pokemon("Bulbasaur", "Planta"));
+        pokemons.add(new Pokemon("Charmander", "Fuego"));
+        pokemons.add(new Pokemon("Squirtle", "Agua"));
+        updatePokemonList();
+>>>>>>> 372bb242cc40de28fdec86b98b9c5a80ddad7353
     }
 
     private void updatePokemonList() {
@@ -101,6 +141,7 @@ public class PokemonManager extends JFrame {
         }
     }
 
+<<<<<<< HEAD
     private void addPokemon() throws SQLException {
         String newPokemonName = JOptionPane
                 .showInputDialog(this, "Ingrese el nombre del nuevo Pokemon:");
@@ -148,16 +189,40 @@ public class PokemonManager extends JFrame {
                             .showMessageDialog(this, "Error al actualizar pokemon: " +
                                     e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
                 }
+=======
+    private void addPokemon() {
+        String newPokeName = JOptionPane
+                .showInputDialog(this, "Ingrese el nombre del nuevo Pokemon:");
+        if (newPokeName != null && !newPokeName.trim().isEmpty()) {
+            pokemons.add(new Pokemon(newPokeName, "Normal"));
+            updatePokemonList();
+        }
+    }
+
+    /*private void updatePokemon() {
+        String selectedPokemon = pokemonList.getSelectedValue();
+        if (selectedPokemon != null) {
+            String updatedPokemon = JOptionPane
+                    .showInputDialog(this, "Actualizar nombre de Pokemon:", selectedPokemon);
+            if (updatedPokemon != null && !updatedPokemon.trim().isEmpty()) {
+                pokemons.set(pokemons.indexOf(selectedPokemon), updatedPokemon.trim());
+                updatePokemonList();
+>>>>>>> 372bb242cc40de28fdec86b98b9c5a80ddad7353
             }
         } else {
             JOptionPane
                     .showMessageDialog(this, "Seleccione un Pokemon para actualizar.");
         }
+<<<<<<< HEAD
     }
+=======
+    }*/
+>>>>>>> 372bb242cc40de28fdec86b98b9c5a80ddad7353
 
     private void deletePokemon() {
         Pokemon selectedPokemon = pokemonList.getSelectedValue();
         if (selectedPokemon != null) {
+<<<<<<< HEAD
             try {
                 PokemonDAOImp pokeFunctions = new PokemonDAOImp();
                 pokeFunctions.delete(selectedPokemon);
@@ -168,6 +233,9 @@ public class PokemonManager extends JFrame {
                 JOptionPane.showMessageDialog(this, "Error al eliminar pokemon: "
                 + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
+=======
+            pokemons.remove(selectedPokemon);
+>>>>>>> 372bb242cc40de28fdec86b98b9c5a80ddad7353
             updatePokemonList();
         } else {
             JOptionPane
@@ -176,4 +244,8 @@ public class PokemonManager extends JFrame {
         }
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 372bb242cc40de28fdec86b98b9c5a80ddad7353
 }

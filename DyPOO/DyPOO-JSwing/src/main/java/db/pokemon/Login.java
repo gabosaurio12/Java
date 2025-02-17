@@ -67,6 +67,13 @@ public class Login extends JFrame {
                 throw new RuntimeException(ex);
             }
         }
+<<<<<<< HEAD:DyPOO/DyPOO-JSwing/src/main/java/db/pokemon/Login.java
+=======
+
+        private boolean authenticate(String username, String password) {
+            return username.equals("admin") && password.equals("1234♠");
+        }
+>>>>>>> 372bb242cc40de28fdec86b98b9c5a80ddad7353:DyPOO/DyPOO-JSwing/src/main/java/db/pokemon/LogIn.java
     }
 
 }

@@ -10,6 +10,7 @@ public class Pokemon {
         this.type = type;
     }
 
+<<<<<<< HEAD
     public Pokemon() {
 
     }
@@ -26,6 +27,8 @@ public class Pokemon {
         this.id = id;
     }
 
+=======
+>>>>>>> 372bb242cc40de28fdec86b98b9c5a80ddad7353
     public String getName() {
         return name;
     }
@@ -41,9 +44,12 @@ public class Pokemon {
     public void setType(String type) {
         this.type = type;
     }
+<<<<<<< HEAD
 
     @Override
     public String toString() {
         return name + " - " + type;
     }
+=======
+>>>>>>> 372bb242cc40de28fdec86b98b9c5a80ddad7353
 }
