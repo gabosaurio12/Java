@@ -1,22 +1,28 @@
 package db.pokemon;
 
+import db.dao.LoginDAOImp;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
-public class LogIn extends JFrame {
+public class Login extends JFrame {
     private JTextField usernameField;
     private JPasswordField passwordField;
     private JLabel messageLabel;
 
-    public LogIn() {
+    public Login() {
         setTitle("Inicio de Sesión");
         setSize(300, 200);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
         initComponents();
+
+        setVisible(true);
+        pack();
     }
 
     private void initComponents() {
@@ -48,18 +54,18 @@ public class LogIn extends JFrame {
             String username = usernameField.getText();
             String password = new String(passwordField.getPassword());
 
-            if (authenticate(username, password)) {
-                messageLabel.setText("Inicio de sesión exitoso");
-                JOptionPane.showMessageDialog(LogIn.this, "Bienvenido " + username);
-                dispose();
-                new PokemonManager();
-            } else {
-                messageLabel.setText("Usuario o contraseña incorrectos");
+            try {
+                if (new LoginDAOImp().authenticateUser(username, password)) {
+                    messageLabel.setText("Inicio de sesión exitoso");
+                    JOptionPane.showMessageDialog(Login.this, "Bienvenido " + username);
+                    dispose();
+                    new PokemonManager().setVisible(true);
+                } else {
+                    messageLabel.setText("Usuario o contraseña incorrectos");
+                }
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
             }
-        }
-
-        private boolean authenticate(String username, String password) {
-            return username.equals("admin") && password.equals("1234");
         }
     }
 

@@ -4,7 +4,6 @@ import com.pokemon.connection.DataBaseConnection;
 import com.pokemon.model.Pokemon;
 import com.pokemon.model.PokemonType;
 
-import javax.xml.transform.Result;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,7 +24,7 @@ public class PokemonDAOImp implements PokemonDAO {
         Connection connection = DataBaseConnection.getInstance().getConnection();
         String insertQuery = "INSERT INTO " + tableName + "(name, type_id) VALUES (?, ?)";
         PreparedStatement ps = connection.prepareStatement(insertQuery);
-        ps.setString(pokemon.getPokeName(), pokemon.getPokeType());
+        ps.setString(1, pokemon.getPokeType());
         ps.execute();
     }
 
@@ -69,18 +68,17 @@ public class PokemonDAOImp implements PokemonDAO {
         List<Pokemon> pokemones = new ArrayList<>();
         PokemonDAOImp typedao = new PokemonDAOImp();
         Connection conn = DataBaseConnection.getInstance().getConnection();
-        String query = "SELECT pokemon.id, name, weight, height, base_experience, type_id FROM pokemon ";
+        String query = "SELECT pokemon.id, name, type_id, type FROM pokemon ";
         PreparedStatement ps = conn.prepareStatement(query);
         ResultSet rs = ps.executeQuery();
         while (rs.next()) {
-            pokemones.add(new Pokemon(
-                    rs.getInt(1),
-                    rs.getString(2),
-                    rs.getDouble(3),
-                    rs.getDouble(4),
-                    rs.getInt(5),
-                    typedao.read(rs.getInt(6))
-            );
+            Pokemon pokemon = new Pokemon();
+            pokemon.setId(rs.getInt(1));
+            pokemon.setPokeName(rs.getString(2));
+            pokemon.setPokeType(new PokemonType(rs.getInt(3), rs.getString(4)));
+            typedao.read(rs.getInt(6));
+
+            pokemones.add(pokemon);
         }
         return pokemones;
     }

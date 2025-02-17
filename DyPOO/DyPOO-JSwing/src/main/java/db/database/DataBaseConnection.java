@@ -1,11 +1,11 @@
-package com.pokemon.connection;
+package db.database;
 
 import java.sql.*;
 
 public class DataBaseConnection {
     private static DataBaseConnection instance;
-    private final Connection connection;
-    private static final String URL = "jdbc:mysql://localhost:3306/pokemonDB";
+    private Connection connection;
+    private static final String URL = "jdbc:mysql://localhost:3306/PokemonSwing";
     private static final String USER = "root";
     private static final String PASSWORD = "1234";
 
